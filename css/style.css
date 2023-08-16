@@ -1,0 +1,78 @@
+body {
+  margin: 0 auto;
+  font-family: sans-serif;
+}
+button, input, label {
+  cursor: pointer;
+}
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-position: center; */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('../img/snakecontainer.jpg');
+}
+h1, h2 {
+  text-align: center;
+  margin: 0;
+}
+canvas {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('../img/snakecanvas.jpg');
+  border-radius: 10px;
+}
+.settings {
+  width: 30%;
+  margin: 0;
+}
+.settings-form {
+  width: 100%;
+}
+.game {
+  width: 30%;  
+  align-self: end;
+}
+fieldset {
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+#imageInput, .collapse-button {
+  box-sizing: border-box;
+  width: 250px;
+  outline: none;
+  text-transform: uppercase;
+  border-radius: 5px;
+}
+#imageInput:hover, 
+button:hover {
+  background: #bd2e28;
+}
+#imageInput:active, 
+button:active {
+  background: #9b221c;
+}
+
+/* для эффекта collapse */
+.hide {
+  display: none;
+}
+.collapse {
+  display: grid;
+  transition: all ease 1s;
+  grid-template-rows: 1fr;
+  padding: 10px;
+}
+.collapse.hide {
+  grid-template-rows: 0fr;
+  padding: 0;
+}
+.collapse>div {
+  overflow: hidden;
+}
+

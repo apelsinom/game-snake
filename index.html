@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Игра "Змейка"</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+
+    <!--левая часть экрана с описанием параметнов игры  -->
+    <div class="game">
+      <h1 class="name">Игра "Змейка"</h1>
+      <div class="check">Счёт: <span id="check"></span></div>
+      <div class="speed">Скорость: <span id="speed"></span></div>
+      <div class="start">
+        <button id="startButton" autofocus>Начать игру</button>  Или нажми Enter
+      </div>
+    </div>
+
+    <!-- центральная часть экрана с игровым полем -->
+    <div class="canvas">
+      <canvas id="gameCanvas" width="480" height="480"></canvas>
+    </div>
+
+    <!-- правая часть экрана с настройками -->
+    <div class="settings">
+      <h2 class="tools">Настройки:</h2>
+      <div class="settings-form"></div>
+        <form>
+
+          <fieldset>
+            <legend><button type="button" class="collapse-button" data-toggle="collapse-1" onkeydown="return false;">Язык</button></legend>
+            <div class="collapse hide" id="collapse-1">
+              <div> <!-- Этот блок обязателен для работы эффекта collapse -->
+                <label for="languageRu">
+                  <input type="radio" name="language" id="languageRu" value="languageRu" checked>Русский
+                </label>
+                <br>
+                <label for="languageEn">
+                  <input type="radio" name="language" id="languageEn" value="languageEn">Английский
+                </label>
+              </div>
+            </div>
+          </fieldset>
+          
+          <fieldset>
+            <legend><button type="button" class="collapse-button" data-toggle="collapse-2" onkeydown="return false;">Размер поля (количество ячеек)</button></legend>
+            <div class="collapse hide" id="collapse-2">
+              <div><!-- Этот блок обязателен для работы эффекта collapse -->
+                <label for="size24">
+                  <input type="radio" name="size" id="size24" value="size24">24x24
+                </label>
+                <br>
+                <label for="size18">
+                  <input type="radio" name="size" id="size18" value="size18" checked>18x18
+                </label>
+                <br>
+                <label for="size12">
+                  <input type="radio" name="size" id="size12" value="size12">12x12
+                </label>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend><button type="button" class="collapse-button" data-toggle="collapse-3" onkeydown="return false;">Сложность (первоначальная скорость)</button></legend>
+            <div class="collapse hide" id="collapse-3">
+              <div><!-- Этот блок обязателен для работы эффекта collapse -->
+                <label for="easy">
+                  <input type="radio" name="complexity" id="easy" value="easy">Легко
+                </label>
+                <br>
+                <label for="normal">
+                  <input type="radio" name="complexity" id="normal" value="normal" checked>Нормально
+                </label>
+                <br>
+                <label for="hard">
+                  <input type="radio" name="complexity" id="hard" value="hard">Сложно
+                </label>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend><button type="button" class="collapse-button" data-toggle="collapse-4" onkeydown="return false;">Управление скоростью</button></legend>
+            <div class="collapse hide" id="collapse-4">
+              <div><!-- Этот блок обязателен для работы эффекта collapse -->
+                <label for="increase">
+                  <input type="radio" name="speed" id="increase" value="increase" checked>Увеличивать скорость
+                </label>
+                <br>
+                <label for="constant">
+                  <input type="radio" name="speed" id="constant" value="constant">Постоянная скорость
+                </label>          
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend><button type="button" class="collapse-button" data-toggle="collapse-5" onkeydown="return false;">Границы игрового поля</button></legend>
+            <div class="collapse hide" id="collapse-5">
+              <div><!-- Этот блок обязателен для работы эффекта collapse -->
+                <label for="bordersYes">
+                  <input type="radio" name="borders" id="bordersYes" value="bordersNo" checked>Запрещено врезаться в границы (конец игры)
+                </label>
+                <br>
+                <label for="borderNo">
+                  <input type="radio" name="borders" id="borderNo" value="borderYes">Разрешено пересекать границы
+                </label>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend><button type="button" class="collapse-button" data-toggle="collapse-6" onkeydown="return false;">Управление змейкой</button></legend>
+            <div class="collapse hide" id="collapse-6">
+              <div><!-- Этот блок обязателен для работы эффекта collapse -->
+                <label for="crossNo">
+                  <input type="radio" name="cross" id="crossNo" value="crossNo" checked>Змейка не может пересекать саму себя (конец игры)
+                </label>
+                <br>
+                <label for="crossYes">
+                  <input type="radio" name="cross" id="crossYes" value="crossYes">Змейка может пересекать саму себя и двигаться в противоположное направление
+                </label>  
+              </div>     
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Зазрузите свою картинку для фона в поле игры</legend>
+            <input type="file" id="imageInput" onkeydown="return false;">
+          </fieldset>
+
+          <!-- <input type="button" value="Настройки по умолчанию" id="resetButton" onkeydown="return false;"> -->
+
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="js/settings.js"></script>
+  <script src="js/snake.js"></script>
+  <script src="js/collapse.js"></script>
+  
+</body>
+</html>
